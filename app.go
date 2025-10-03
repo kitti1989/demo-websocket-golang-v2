@@ -74,7 +74,7 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 			// **TODO: Implement frame processing logic here**
 			// E.g., Decode the frame, save it to a file, or forward it.
 			// For live streaming, you might process it in real-time.
-			confirmation := "Server received frame successfully!\nframe of size: %d bytes\n"
+			confirmation := "Server received frame successfully!\nframe of size: " + fmt.Sprintf("%d", len(message)) + "bytes\n"
 
 			// WriteMessage takes the message type (Text or Binary) and the data ([]byte)
 			err = conn.WriteMessage(websocket.TextMessage, []byte(confirmation))
